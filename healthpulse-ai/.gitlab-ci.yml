@@ -1,0 +1,14 @@
+image: node:20
+
+pages:
+  script:
+    - cd frontend
+    - npm install
+    - npm run build
+    - mkdir -p ../public
+    - cp -r dist/* ../public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
