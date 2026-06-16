@@ -1,0 +1,44 @@
+{
+  "navbar": {
+    "active_ai": "IA Activa:",
+    "logged_in_as": "Conectado como"
+  },
+  "sidebar": {
+    "dashboard": "Panel de control",
+    "upload_report": "Subir informe",
+    "ai_chat": "Chat con IA",
+    "report_comparison": "Comparación de informes",
+    "settings": "Ajustes",
+    "health_tip": "Consejo de salud",
+    "health_tip_desc": "Subir y comparar informes regularmente ayuda a realizar un seguimiento de los cambios en la presión arterial y el colesterol durante meses."
+  },
+  "dashboard": {
+    "dashboard_title": "Panel de control",
+    "welcome_back": "Bienvenido de nuevo, {{name}}. Supervise y discuta sus indicadores de laboratorio.",
+    "btn_upload_report": "Subir informe",
+    "loading": "Cargando base de datos de informes...",
+    "reports_uploaded": "Informes subidos",
+    "latest_abnormal_values": "Últimos valores anormales",
+    "active_llm_engine": "Motor LLM Activo",
+    "my_reports": "Mis Informes",
+    "no_reports": "Aún no se han subido informes médicos.",
+    "add_first_report": "Añadir primer informe",
+    "latest_analysis_insights": "Últimas perspectivas de análisis",
+    "full_report": "Informe completo",
+    "discuss_with_ai": "Discutir con IA",
+    "no_report_selected": "Ningún informe médico seleccionado",
+    "no_report_desc": "Suba su primer informe PDF de prueba de laboratorio. Nuestro sistema RAG extraerá lecturas, delineará valores anormales y le permitirá hacer preguntas.",
+    "model_active": "Modelo {{provider}} activo",
+    "file": "Archivo:"
+  },
+  "upload": {
+    "title": "Subir informe médico",
+    "subtitle": "Sube tus archivos médicos de forma segura. Todo el procesamiento de texto y las operaciones vectoriales están encriptados y son confidenciales.",
+    "hipaa_shield_title": "Escudo HIPAA",
+    "hipaa_shield_desc": "Los datos se analizan dinámicamente. Los vectores se eliminan cuando se elimina el registro del informe.",
+    "byok_title": "BYOK Dinámico",
+    "byok_desc": "Sus claves nunca se almacenan en la base de datos del servidor. Se ejecutan dinámicamente desde la memoria local del navegador.",
+    "no_training_title": "Sin datos de entrenamiento",
+    "no_training_desc": "Su texto médico no se utiliza para entrenar modelos globales de IA. Aislamiento completo de su perfil médico."
+  }
+}

@@ -2,9 +2,11 @@ import React from 'react';
 import UploadBox from '../components/UploadBox';
 import { useNavigate } from 'react-router-dom';
 import { ShieldCheck, Lock, EyeOff } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function UploadReport() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleUploadSuccess = (data) => {
     // Navigate to report summary details
@@ -17,10 +19,10 @@ export default function UploadReport() {
     <div className="p-6 max-w-4xl mx-auto space-y-8">
       <div>
         <h1 className="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">
-          Upload Medical Report
+          {t('upload.title')}
         </h1>
         <p className="text-slate-500 text-sm mt-1">
-          Upload your medical files securely. All text processing and vector operations are encrypted and confidential.
+          {t('upload.subtitle')}
         </p>
       </div>
 
@@ -34,9 +36,9 @@ export default function UploadReport() {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wide">HIPAA Shield</h4>
+              <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wide">{t('upload.hipaa_shield_title')}</h4>
               <p className="text-[11px] text-slate-400 leading-relaxed mt-1">
-                Data is parsed dynamically. Vectors are deleted when you delete the report record.
+                {t('upload.hipaa_shield_desc')}
               </p>
             </div>
           </div>
@@ -46,9 +48,9 @@ export default function UploadReport() {
               <Lock className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wide">Dynamic BYOK</h4>
+              <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wide">{t('upload.byok_title')}</h4>
               <p className="text-[11px] text-slate-400 leading-relaxed mt-1">
-                Your keys are never stored on the server database. They run dynamically from browser local memory.
+                {t('upload.byok_desc')}
               </p>
             </div>
           </div>
@@ -58,9 +60,9 @@ export default function UploadReport() {
               <EyeOff className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wide">No Training data</h4>
+              <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wide">{t('upload.no_training_title')}</h4>
               <p className="text-[11px] text-slate-400 leading-relaxed mt-1">
-                Your medical text is not used to train global AI models. Complete isolation of your medical profile.
+                {t('upload.no_training_desc')}
               </p>
             </div>
           </div>

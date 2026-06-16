@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, UploadCloud, MessageSquare, BarChart3, Settings } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Sidebar() {
+  const { t } = useTranslation();
   const navItems = [
-    { name: 'Dashboard', path: '/', icon: LayoutDashboard },
-    { name: 'Upload Report', path: '/upload', icon: UploadCloud },
-    { name: 'AI Chat', path: '/chat', icon: MessageSquare },
-    { name: 'Report Comparison', path: '/compare', icon: BarChart3 },
-    { name: 'Settings', path: '/settings', icon: Settings },
+    { name: t('sidebar.dashboard'), path: '/', icon: LayoutDashboard },
+    { name: t('sidebar.upload_report'), path: '/upload', icon: UploadCloud },
+    { name: t('sidebar.ai_chat'), path: '/chat', icon: MessageSquare },
+    { name: t('sidebar.report_comparison'), path: '/compare', icon: BarChart3 },
+    { name: t('sidebar.settings'), path: '/settings', icon: Settings },
   ];
 
   return (
@@ -35,9 +37,9 @@ export default function Sidebar() {
 
       {/* Sidebar Quick Tip Card */}
       <div className="p-4 m-4 bg-gradient-to-tr from-brand-50 to-brand-100/50 rounded-2xl border border-brand-100/50">
-        <span className="text-[10px] text-brand-600 font-bold uppercase tracking-wider block mb-1">Health Tip</span>
+        <span className="text-[10px] text-brand-600 font-bold uppercase tracking-wider block mb-1">{t('sidebar.health_tip')}</span>
         <p className="text-xs text-slate-600 leading-relaxed font-medium">
-          Regularly uploading and comparing reports helps tracking blood pressure and cholesterol changes over months.
+          {t('sidebar.health_tip_desc')}
         </p>
       </div>
     </aside>

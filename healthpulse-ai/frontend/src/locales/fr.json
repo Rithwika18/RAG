@@ -1,0 +1,44 @@
+{
+  "navbar": {
+    "active_ai": "IA active :",
+    "logged_in_as": "Connecté en tant que"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "upload_report": "Télécharger le rapport",
+    "ai_chat": "Chat IA",
+    "report_comparison": "Comparaison des rapports",
+    "settings": "Paramètres",
+    "health_tip": "Conseil santé",
+    "health_tip_desc": "Le téléchargement et la comparaison réguliers de rapports permettent de suivre les changements de tension artérielle et de cholestérol au fil des mois."
+  },
+  "dashboard": {
+    "dashboard_title": "Tableau de bord",
+    "welcome_back": "Welcome back, {{name}}. Monitor and discuss your laboratory indicators.",
+    "btn_upload_report": "Télécharger le rapport",
+    "loading": "Chargement de la base de données des rapports...",
+    "reports_uploaded": "Rapports téléchargés",
+    "latest_abnormal_values": "Dernières valeurs anormales",
+    "active_llm_engine": "Moteur LLM actif",
+    "my_reports": "Mes rapports",
+    "no_reports": "Aucun rapport médical n'a encore été téléchargé.",
+    "add_first_report": "Ajouter le premier rapport",
+    "latest_analysis_insights": "Dernières analyses",
+    "full_report": "Rapport complet",
+    "discuss_with_ai": "Discutez avec l'IA",
+    "no_report_selected": "Aucun rapport médical sélectionné",
+    "no_report_desc": "Téléchargez votre premier rapport PDF de test de laboratoire. Notre système RAG extraira les lectures, soulignera les valeurs anormales et vous permettra de poser des questions.",
+    "model_active": "{{provider}} model active",
+    "file": "Déposer:"
+  },
+  "upload": {
+    "title": "Télécharger le rapport médical",
+    "subtitle": "Téléchargez vos dossiers médicaux en toute sécurité. Tous les traitements de texte et opérations vectorielles sont cryptés et confidentiels.",
+    "hipaa_shield_title": "Bouclier HIPAA",
+    "hipaa_shield_desc": "Les données sont analysées dynamiquement. Les vecteurs sont supprimés lorsque vous supprimez l'enregistrement du rapport.",
+    "byok_title": "BYOK dynamique",
+    "byok_desc": "Vos clés ne sont jamais stockées sur la base de données du serveur. Ils s'exécutent dynamiquement à partir de la mémoire locale du navigateur.",
+    "no_training_title": "Aucune donnée de formation",
+    "no_training_desc": "Votre texte médical n’est pas utilisé pour former des modèles d’IA globaux. Isolement complet de votre profil médical."
+  }
+}

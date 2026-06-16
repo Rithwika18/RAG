@@ -1,0 +1,44 @@
+{
+  "navbar": {
+    "active_ai": "Active AI:",
+    "logged_in_as": "Logged in as"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "upload_report": "Upload Report",
+    "ai_chat": "AI Chat",
+    "report_comparison": "Report Comparison",
+    "settings": "Settings",
+    "health_tip": "Health Tip",
+    "health_tip_desc": "Regularly uploading and comparing reports helps tracking blood pressure and cholesterol changes over months."
+  },
+  "dashboard": {
+    "dashboard_title": "Dashboard",
+    "welcome_back": "Welcome back, {{name}}. Monitor and discuss your laboratory indicators.",
+    "btn_upload_report": "Upload Report",
+    "loading": "Loading reports database...",
+    "reports_uploaded": "Reports Uploaded",
+    "latest_abnormal_values": "Latest Abnormal Values",
+    "active_llm_engine": "Active LLM Engine",
+    "my_reports": "My Reports",
+    "no_reports": "No medical reports uploaded yet.",
+    "add_first_report": "Add first report",
+    "latest_analysis_insights": "Latest Analysis Insights",
+    "full_report": "Full Report",
+    "discuss_with_ai": "Discuss with AI",
+    "no_report_selected": "No Medical Report Selected",
+    "no_report_desc": "Upload your first laboratory test PDF report. Our RAG system will extract readings, outline abnormal values, and let you ask questions.",
+    "model_active": "{{provider}} model active",
+    "file": "File:"
+  },
+  "upload": {
+    "title": "Upload Medical Report",
+    "subtitle": "Upload your medical files securely. All text processing and vector operations are encrypted and confidential.",
+    "hipaa_shield_title": "HIPAA Shield",
+    "hipaa_shield_desc": "Data is parsed dynamically. Vectors are deleted when you delete the report record.",
+    "byok_title": "Dynamic BYOK",
+    "byok_desc": "Your keys are never stored on the server database. They run dynamically from browser local memory.",
+    "no_training_title": "No Training data",
+    "no_training_desc": "Your medical text is not used to train global AI models. Complete isolation of your medical profile."
+  }
+}

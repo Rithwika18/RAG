@@ -1,0 +1,44 @@
+{
+  "navbar": {
+    "active_ai": "アクティブAI:",
+    "logged_in_as": "としてログイン"
+  },
+  "sidebar": {
+    "dashboard": "ダッシュボード",
+    "upload_report": "レポートのアップロード",
+    "ai_chat": "AIチャット",
+    "report_comparison": "レポートの比較",
+    "settings": "設定",
+    "health_tip": "健康に関するヒント",
+    "health_tip_desc": "レポートを定期的にアップロードして比較すると、数か月にわたる血圧とコレステロールの変化を追跡するのに役立ちます。"
+  },
+  "dashboard": {
+    "dashboard_title": "ダッシュボード",
+    "welcome_back": "Welcome back, {{name}}. Monitor and discuss your laboratory indicators.",
+    "btn_upload_report": "レポートのアップロード",
+    "loading": "レポートデータベースをロードしています...",
+    "reports_uploaded": "アップロードされたレポート",
+    "latest_abnormal_values": "最新の異常値",
+    "active_llm_engine": "アクティブ LLM エンジン",
+    "my_reports": "私のレポート",
+    "no_reports": "医療レポートはまだアップロードされていません。",
+    "add_first_report": "最初のレポートを追加",
+    "latest_analysis_insights": "最新の分析洞察",
+    "full_report": "完全なレポート",
+    "discuss_with_ai": "AIと話し合う",
+    "no_report_selected": "医療レポートが選択されていません",
+    "no_report_desc": "最初の臨床検査 PDF レポートをアップロードします。当社の RAG システムは、測定値を抽出し、異常値の概要を示し、質問できるようにします。",
+    "model_active": "{{provider}} model active",
+    "file": "ファイル："
+  },
+  "upload": {
+    "title": "医療レポートをアップロードする",
+    "subtitle": "医療ファイルを安全にアップロードします。すべてのテキスト処理とベクトル操作は暗号化され、機密性が保たれます。",
+    "hipaa_shield_title": "HIPAA シールド",
+    "hipaa_shield_desc": "データは動的に解析されます。レポート レコードを削除すると、ベクトルも削除されます。",
+    "byok_title": "動的BYOK",
+    "byok_desc": "キーがサーバー データベースに保存されることはありません。これらはブラウザのローカル メモリから動的に実行されます。",
+    "no_training_title": "トレーニングデータがありません",
+    "no_training_desc": "あなたの医学テキストは、グローバル AI モデルのトレーニングには使用されません。医療プロフィールを完全に隔離します。"
+  }
+}

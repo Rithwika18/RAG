@@ -1,0 +1,44 @@
+{
+  "navbar": {
+    "active_ai": "Aktive KI:",
+    "logged_in_as": "Angemeldet als"
+  },
+  "sidebar": {
+    "dashboard": "Armaturenbrett",
+    "upload_report": "Bericht hochladen",
+    "ai_chat": "KI-Chat",
+    "report_comparison": "Berichtsvergleich",
+    "settings": "Einstellungen",
+    "health_tip": "Gesundheitstipp",
+    "health_tip_desc": "Das regelmäßige Hochladen und Vergleichen von Berichten hilft dabei, Blutdruck- und Cholesterinveränderungen über Monate hinweg zu verfolgen."
+  },
+  "dashboard": {
+    "dashboard_title": "Armaturenbrett",
+    "welcome_back": "Welcome back, {{name}}. Monitor and discuss your laboratory indicators.",
+    "btn_upload_report": "Bericht hochladen",
+    "loading": "Berichtsdatenbank wird geladen...",
+    "reports_uploaded": "Berichte hochgeladen",
+    "latest_abnormal_values": "Neueste abnormale Werte",
+    "active_llm_engine": "Aktive LLM-Engine",
+    "my_reports": "Meine Berichte",
+    "no_reports": "Es wurden noch keine medizinischen Berichte hochgeladen.",
+    "add_first_report": "Ersten Bericht hinzufügen",
+    "latest_analysis_insights": "Neueste Analyseerkenntnisse",
+    "full_report": "Vollständiger Bericht",
+    "discuss_with_ai": "Diskutieren Sie mit KI",
+    "no_report_selected": "Kein medizinischer Bericht ausgewählt",
+    "no_report_desc": "Laden Sie Ihren ersten Labortest-PDF-Bericht hoch. Unser RAG-System extrahiert Messwerte, stellt abnormale Werte dar und ermöglicht es Ihnen, Fragen zu stellen.",
+    "model_active": "{{provider}} model active",
+    "file": "Datei:"
+  },
+  "upload": {
+    "title": "Medizinischen Bericht hochladen",
+    "subtitle": "Laden Sie Ihre Krankenakten sicher hoch. Alle Textverarbeitungs- und Vektoroperationen sind verschlüsselt und vertraulich.",
+    "hipaa_shield_title": "HIPAA-Schild",
+    "hipaa_shield_desc": "Die Daten werden dynamisch analysiert. Vektoren werden gelöscht, wenn Sie den Berichtsdatensatz löschen.",
+    "byok_title": "Dynamisches BYOK",
+    "byok_desc": "Ihre Schlüssel werden niemals in der Serverdatenbank gespeichert. Sie werden dynamisch aus dem lokalen Speicher des Browsers ausgeführt.",
+    "no_training_title": "Keine Trainingsdaten",
+    "no_training_desc": "Ihr medizinischer Text wird nicht zum Trainieren globaler KI-Modelle verwendet. Vollständige Isolierung Ihres medizinischen Profils."
+  }
+}

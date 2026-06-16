@@ -1,0 +1,44 @@
+{
+  "navbar": {
+    "active_ai": "主动人工智能：",
+    "logged_in_as": "登录身份"
+  },
+  "sidebar": {
+    "dashboard": "仪表板",
+    "upload_report": "上传报告",
+    "ai_chat": "人工智能聊天",
+    "report_comparison": "报告比较",
+    "settings": "设置",
+    "health_tip": "健康小贴士",
+    "health_tip_desc": "定期上传和比较报告有助于跟踪几个月内的血压和胆固醇变化。"
+  },
+  "dashboard": {
+    "dashboard_title": "仪表板",
+    "welcome_back": "Welcome back, {{name}}. Monitor and discuss your laboratory indicators.",
+    "btn_upload_report": "上传报告",
+    "loading": "正在加载报告数据库...",
+    "reports_uploaded": "报告已上传",
+    "latest_abnormal_values": "最新异常值",
+    "active_llm_engine": "活跃的法学硕士引擎",
+    "my_reports": "我的报告",
+    "no_reports": "尚未上传医疗报告。",
+    "add_first_report": "添加第一份报告",
+    "latest_analysis_insights": "最新分析见解",
+    "full_report": "完整报告",
+    "discuss_with_ai": "与AI讨论",
+    "no_report_selected": "未选择医疗报告",
+    "no_report_desc": "上传您的第一份实验室测试 PDF 报告。我们的 RAG 系统将提取读数、概述异常值并让您提出问题。",
+    "model_active": "{{provider}} model active",
+    "file": "文件："
+  },
+  "upload": {
+    "title": "上传医疗报告",
+    "subtitle": "安全上传您的医疗文件。所有文本处理和矢量操作均经过加密且保密。",
+    "hipaa_shield_title": "HIPAA 防护罩",
+    "hipaa_shield_desc": "数据是动态解析的。删除报告记录时，向量也会被删除。",
+    "byok_title": "动态BYOK",
+    "byok_desc": "您的密钥永远不会存储在服务器数据库中。它们从浏览器本地内存动态运行。",
+    "no_training_title": "无训练数据",
+    "no_training_desc": "您的医学文本不会用于训练全球人工智能模型。完全隔离您的医疗档案。"
+  }
+}

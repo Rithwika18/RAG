@@ -5,6 +5,7 @@ import { SettingsContext } from '../context/SettingsContext';
 import { FileText, Plus, MessageSquare, Trash2, Calendar, AlertTriangle, ChevronRight, BarChart3, Loader } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import SummaryCards from '../components/SummaryCards';
+import { useTranslation } from 'react-i18next';
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
@@ -14,6 +15,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState(null);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const fetchDashboardData = async () => {
     try {
@@ -75,10 +77,10 @@ export default function Dashboard() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">
-            Dashboard
+            {t('dashboard.dashboard_title')}
           </h1>
           <p className="text-slate-500 text-sm mt-1">
-            Welcome back, <span className="font-bold text-brand-600">{user?.username}</span>. Monitor and discuss your laboratory indicators.
+            {t('dashboard.welcome_back', { name: user?.username })}
           </p>
         </div>
         <Link
@@ -86,14 +88,14 @@ export default function Dashboard() {
           className="flex items-center space-x-2 px-5 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-2xl text-sm font-semibold shadow-lg shadow-brand-100 transition-all self-start md:self-auto"
         >
           <Plus className="w-4 h-4" />
-          <span>Upload Report</span>
+          <span>{t('dashboard.btn_upload_report')}</span>
         </Link>
       </div>
 
       {loading ? (
         <div className="h-96 flex items-center justify-center text-slate-400">
           <Loader className="w-8 h-8 animate-spin text-brand-500 mr-2" />
-          <span className="font-medium text-sm">Loading reports database...</span>
+          <span className="font-medium text-sm">{t('dashboard.loading')}</span>
         </div>
       ) : (
         <>
@@ -105,7 +107,7 @@ export default function Dashboard() {
                 <FileText className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">Reports Uploaded</span>
+                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">{t('dashboard.reports_uploaded')}</span>
                 <span className="text-2xl font-bold text-slate-800 mt-1 block">{reports.length}</span>
               </div>
             </div>
@@ -116,7 +118,7 @@ export default function Dashboard() {
                 <AlertTriangle className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">Latest Abnormal Values</span>
+                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">{t('dashboard.latest_abnormal_values')}</span>
                 <span className="text-2xl font-bold text-slate-800 mt-1 block">
                   {reports.length > 0 ? getAbnormalCount() : 0}
                 </span>
@@ -129,9 +131,9 @@ export default function Dashboard() {
                 <BarChart3 className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">Active LLM Engine</span>
+                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">{t('dashboard.active_llm_engine')}</span>
                 <span className="text-sm font-bold text-slate-800 mt-1.5 block capitalize truncate max-w-[160px]">
-                  {provider} model active
+                  {t('dashboard.model_active', { provider })}
                 </span>
               </div>
             </div>
@@ -139,14 +141,14 @@ export default function Dashboard() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             {/* Left 1 Column: List of Reports */}
-            <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm space-y-4 lg:col-span-1">
-              <h3 className="font-bold text-slate-800 text-base mb-2">My Reports</h3>
+            <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm space-y-4 lg:col-span-1 glass-panel">
+              <h3 className="font-bold text-slate-800 text-base mb-2">{t('dashboard.my_reports')}</h3>
               {reports.length === 0 ? (
                 <div className="text-center py-10">
                   <FileText className="w-12 h-12 text-slate-200 stroke-1 mx-auto mb-3" />
-                  <p className="text-xs text-slate-500">No medical reports uploaded yet.</p>
+                  <p className="text-xs text-slate-500">{t('dashboard.no_reports')}</p>
                   <Link to="/upload" className="text-brand-500 text-xs font-bold hover:underline mt-2 inline-block">
-                    Add first report
+                    {t('dashboard.add_first_report')}
                   </Link>
                 </div>
               ) : (
@@ -203,23 +205,23 @@ export default function Dashboard() {
                 <div>
                   <div className="flex items-center justify-between mb-4 px-2">
                     <div>
-                      <h3 className="font-bold text-slate-800 text-lg">Latest Analysis Insights</h3>
-                      <p className="text-xs text-slate-400">File: {latestReport.filename}</p>
+                      <h3 className="font-bold text-slate-800 text-lg">{t('dashboard.latest_analysis_insights')}</h3>
+                      <p className="text-xs text-slate-400">{t('dashboard.file')} {latestReport.filename}</p>
                     </div>
                     <div className="flex space-x-2">
                       <Link
                         to={`/summary?id=${latestReport.id}`}
-                        className="flex items-center space-x-1 text-xs font-bold text-brand-500 hover:underline px-3 py-1.5 bg-brand-50 rounded-lg"
+                        className="flex items-center space-x-1 text-xs font-bold text-brand-500 hover:underline px-3 py-1.5 bg-brand-50 rounded-lg hover-scale"
                       >
-                        <span>Full Report</span>
+                        <span>{t('dashboard.full_report')}</span>
                         <ChevronRight className="w-3 h-3" />
                       </Link>
                       <Link
                         to={`/chat?id=${latestReport.id}`}
-                        className="flex items-center space-x-1 text-xs font-bold text-indigo-500 hover:underline px-3 py-1.5 bg-indigo-50 rounded-lg"
+                        className="flex items-center space-x-1 text-xs font-bold text-indigo-500 hover:underline px-3 py-1.5 bg-indigo-50 rounded-lg hover-scale"
                       >
                         <MessageSquare className="w-3 h-3 mr-0.5" />
-                        <span>Discuss with AI</span>
+                        <span>{t('dashboard.discuss_with_ai')}</span>
                       </Link>
                     </div>
                   </div>
@@ -228,18 +230,18 @@ export default function Dashboard() {
                   <SummaryCards analysis={latestReport.analysis} />
                 </div>
               ) : (
-                <div className="bg-white p-12 rounded-[2rem] border border-slate-100 shadow-sm text-center">
+                <div className="bg-white p-12 rounded-[2rem] border border-slate-100 shadow-sm text-center glass-panel">
                   <FileText className="w-16 h-16 text-slate-200 stroke-1 mx-auto mb-4" />
-                  <h3 className="font-bold text-slate-800 text-lg">No Medical Report Selected</h3>
+                  <h3 className="font-bold text-slate-800 text-lg">{t('dashboard.no_report_selected')}</h3>
                   <p className="text-slate-400 text-sm max-w-sm mx-auto mt-2 leading-relaxed">
-                    Upload your first laboratory test PDF report. Our RAG system will extract readings, outline abnormal values, and let you ask questions.
+                    {t('dashboard.no_report_desc')}
                   </p>
                   <Link
                     to="/upload"
-                    className="mt-6 inline-flex items-center space-x-2 px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-brand-100 transition-all"
+                    className="mt-6 inline-flex items-center space-x-2 px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-brand-100 transition-all hover-scale"
                   >
                     <Plus className="w-4 h-4" />
-                    <span>Upload Report</span>
+                    <span>{t('dashboard.btn_upload_report')}</span>
                   </Link>
                 </div>
               )}

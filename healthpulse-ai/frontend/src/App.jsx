@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './context/AuthContext';
 import { SettingsProvider } from './context/SettingsContext';
+import { LanguageProvider, LanguageContext } from './context/LanguageContext';
+import LanguageSelection from './pages/LanguageSelection';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -23,7 +25,8 @@ function ProtectedLayout() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f4f7fe]">
+    <LanguageGate>
+      <div className="min-h-screen flex flex-col bg-[#f4f7fe]">
       <Navbar />
       <div className="flex-grow flex">
         <Sidebar />
@@ -41,6 +44,7 @@ function ProtectedLayout() {
       </div>
       <Footer />
     </div>
+    </LanguageGate>
   );
 }
 
@@ -55,32 +59,45 @@ function PublicRoute({ children }) {
   return children;
 }
 
+function LanguageGate({ children }) {
+  const { hasSelectedLanguage } = useContext(LanguageContext);
+
+  // If no language has been selected, show the language selection screen
+  if (!hasSelectedLanguage) {
+    return <LanguageSelection />;
+  }
+
+  return children;
+}
+
 export default function App() {
   return (
-    <AuthProvider>
-      <SettingsProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/login"
-              element={
-                <PublicRoute>
-                  <Login />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <PublicRoute>
-                  <Register />
-                </PublicRoute>
-              }
-            />
-            <Route path="/*" element={<ProtectedLayout />} />
-          </Routes>
-        </BrowserRouter>
-      </SettingsProvider>
-    </AuthProvider>
+    <LanguageProvider>
+      <AuthProvider>
+        <SettingsProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute>
+                    <Login />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <PublicRoute>
+                    <Register />
+                  </PublicRoute>
+                }
+              />
+              <Route path="/*" element={<ProtectedLayout />} />
+            </Routes>
+          </BrowserRouter>
+        </SettingsProvider>
+      </AuthProvider>
+    </LanguageProvider>
   );
 }

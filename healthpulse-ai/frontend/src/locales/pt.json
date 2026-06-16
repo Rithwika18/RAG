@@ -1,0 +1,44 @@
+{
+  "navbar": {
+    "active_ai": "IA ativa:",
+    "logged_in_as": "Logado como"
+  },
+  "sidebar": {
+    "dashboard": "Painel",
+    "upload_report": "Carregar relatório",
+    "ai_chat": "Bate-papo com IA",
+    "report_comparison": "Comparação de relatórios",
+    "settings": "Configurações",
+    "health_tip": "Dica de saúde",
+    "health_tip_desc": "Carregar e comparar relatórios regularmente ajuda a monitorar as alterações na pressão arterial e no colesterol ao longo dos meses."
+  },
+  "dashboard": {
+    "dashboard_title": "Painel",
+    "welcome_back": "Welcome back, {{name}}. Monitor and discuss your laboratory indicators.",
+    "btn_upload_report": "Carregar relatório",
+    "loading": "Carregando banco de dados de relatórios...",
+    "reports_uploaded": "Relatórios enviados",
+    "latest_abnormal_values": "Últimos valores anormais",
+    "active_llm_engine": "Mecanismo LLM ativo",
+    "my_reports": "Meus relatórios",
+    "no_reports": "Nenhum relatório médico enviado ainda.",
+    "add_first_report": "Adicionar primeiro relatório",
+    "latest_analysis_insights": "Insights de análise mais recentes",
+    "full_report": "Relatório completo",
+    "discuss_with_ai": "Discuta com IA",
+    "no_report_selected": "Nenhum relatório médico selecionado",
+    "no_report_desc": "Carregue seu primeiro relatório em PDF de teste de laboratório. Nosso sistema RAG extrairá leituras, descreverá valores anormais e permitirá que você faça perguntas.",
+    "model_active": "{{provider}} model active",
+    "file": "Arquivo:"
+  },
+  "upload": {
+    "title": "Carregar relatório médico",
+    "subtitle": "Carregue seus arquivos médicos com segurança. Todas as operações de processamento de texto e vetores são criptografadas e confidenciais.",
+    "hipaa_shield_title": "Escudo HIPAA",
+    "hipaa_shield_desc": "Os dados são analisados ​​dinamicamente. Os vetores são excluídos quando você exclui o registro do relatório.",
+    "byok_title": "BYOK dinâmico",
+    "byok_desc": "Suas chaves nunca são armazenadas no banco de dados do servidor. Eles são executados dinamicamente a partir da memória local do navegador.",
+    "no_training_title": "Sem dados de treinamento",
+    "no_training_desc": "Seu texto médico não é usado para treinar modelos globais de IA. Isolamento completo do seu perfil médico."
+  }
+}
