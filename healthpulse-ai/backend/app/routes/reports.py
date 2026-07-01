@@ -263,14 +263,29 @@ def chat_on_report(
     context_chunks = rag.query_chroma(report_id, english_query, n_results=4)
     context_text = "\n\n".join(context_chunks)
     
+    # 4b. Extract the full report text to ensure absolute precision (e.g., distinguishing RBC/WBC)
+    try:
+        full_report_text = rag.extract_text_from_pdf(report.file_path)
+        # Cap full text to 8000 characters to keep it well within context limits
+        full_report_text = full_report_text[:8000]
+    except Exception as e:
+        print(f"Error extracting full report text in chat: {e}")
+        full_report_text = ""
+    
     # 5. Formulate context prompt in English
     system_prompt = """You are a professional medical assistant AI.
-You must base your answer strictly on the provided context from the medical report.
-Answer the user's question clearly, precisely, and extremely concisely (1-2 sentences maximum). If the context does not contain enough details, say "Not mentioned in report."
+You must base your answer strictly on the provided medical report details.
+Be extremely precise about specific medical metrics (e.g., distinguishing RBC from WBC, Glucose levels, etc.). Do not confuse similar-sounding or related parameters.
+Answer the user's question clearly, precisely, and extremely concisely (1-2 sentences maximum). If the details do not contain the answer, say "Not mentioned in report."
 """
     prompt = f"""Use the following medical report details to answer the user's question.
 
-Report Details:
+Full Medical Report Text:
+--------------------
+{full_report_text}
+--------------------
+
+Relevant Excerpts:
 --------------------
 {context_text}
 --------------------

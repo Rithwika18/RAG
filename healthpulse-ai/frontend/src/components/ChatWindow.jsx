@@ -92,7 +92,8 @@ export default function ChatWindow({ reportId, reportName }) {
   const suggestedQuestions = getSuggestedQuestions();
 
   const getKeyboardLayout = () => {
-    if (language?.toLowerCase() === 'telugu') {
+    const lang = language?.toLowerCase();
+    if (lang === 'telugu') {
       return {
         title: 'Telugu Virtual Keyboard (తెలుగు కీబోర్డ్)',
         vowels: ['అ', 'ఆ', 'ఇ', 'ఈ', 'ఉ', 'ఊ', 'ఋ', 'ఎ', 'ఏ', 'ఐ', 'ఒ', 'ఓ', 'ఔ', 'అం', 'అః'],
@@ -104,14 +105,136 @@ export default function ChatWindow({ reportId, reportName }) {
           'ప', 'ఫ', 'బ', 'భ', 'మ',
           'య', 'ర', 'ల', 'వ', 'శ', 'ష', 'స', 'హ', 'ళ', 'క్ష', 'ఱ'
         ],
-        modifiers: ['ా', 'ి', 'ీ', 'ు', 'ూ', 'ృ', 'ె', 'ే', 'ై', 'ఒ', 'ో', 'ౌ', 'ం', 'ః', '్'],
+        modifiers: ['ా', 'ి', 'ీ', 'ు', 'ూ', 'ృ', 'ె', 'ే', 'ై', 'ొ', 'ో', 'ౌ', 'ం', 'ః', '్'],
         space: 'Space (ఖాళీ)',
         backspace: 'Backspace (వెనుకకు)',
         clear: 'Clear (తుడిచివేయి)'
       };
     }
+    if (lang === 'tamil') {
+      return {
+        title: 'Tamil Virtual Keyboard (தமிழ் கீபோர்டு)',
+        vowels: ['அ', 'ஆ', 'இ', 'ஈ', 'உ', 'ஊ', 'எ', 'ஏ', 'ஐ', 'ஒ', 'ஓ', 'ஔ', 'அஃ'],
+        consonants: [
+          'க', 'ங', 'ச', 'ஞ', 'ட', 'ண',
+          'த', 'ந', 'ப', 'ம', 'ய', 'ர',
+          'ல', 'வ', 'ழ', 'ள', 'ற', 'ன',
+          'ஜ', 'ஷ', 'ஸ', 'ஹ', 'க்ஷ'
+        ],
+        modifiers: ['ா', 'ி', 'ீ', 'ு', 'ூ', 'ெ', 'ே', 'ை', 'ொ', 'ோ', 'ௌ', '்'],
+        space: 'Space (இடைவெளி)',
+        backspace: 'Backspace (அழி)',
+        clear: 'Clear (துடை)'
+      };
+    }
+    if (lang === 'kannada') {
+      return {
+        title: 'Kannada Virtual Keyboard (ಕನ್ನಡ ಕೀಬೋರ್ಡ್)',
+        vowels: ['ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಉ', 'ಊ', 'ಋ', 'ಎ', 'ಏ', 'ಐ', 'ಒ', 'ಓ', 'ಔ', 'ಅಂ', 'ಅಃ'],
+        consonants: [
+          'ಕ', 'ಖ', 'ಗ', 'ಘ', 'ಙ',
+          'ಚ', 'ಛ', 'ಜ', 'ಝ', 'ಞ',
+          'ಟ', 'ಠ', 'ಡ', 'ಢ', 'ಣ',
+          'త', 'ಥ', 'ದ', 'ಧ', 'ನ',
+          'ಪ', 'ಫ', 'ಬ', 'ಭ', 'ಮ',
+          'ಯ', 'ರ', 'ಲ', 'ವ', 'ಶ', 'ಷ', 'ಸ', 'ಹ', 'ಳ', 'ಕ್ಷ', 'ಱ'
+        ],
+        modifiers: ['ಾ', 'ಿ', 'ೀ', 'ು', 'ೂ', 'ೃ', 'ೆ', 'ೇ', 'ೈ', 'ೊ', 'ೋ', 'ೌ', 'ಂ', 'ಃ', '್'],
+        space: 'Space (ಸ್ಪೇಸ್)',
+        backspace: 'Backspace (ಬ್ಯಾಕ್‌ಸ್ಪೇಸ್)',
+        clear: 'Clear (ತೆರవుಗೊಳಿಸು)'
+      };
+    }
+    if (lang === 'malayalam') {
+      return {
+        title: 'Malayalam Virtual Keyboard (മലയാളം കീബോർഡ്)',
+        vowels: ['അ', 'ആ', 'ഇ', 'ഈ', 'ഉ', 'ഊ', 'ഋ', 'എ', 'ഏ', 'ഐ', 'ഒ', 'ഓ', 'ഔ', 'അം', 'അഃ'],
+        consonants: [
+          'ക', 'ഖ', 'ഗ', 'ഘ', 'ങ',
+          'ച', 'ഛ', 'ജ', 'ഝ', 'ഞ',
+          'ട', 'ഠ', 'ഡ', 'ഢ', 'ണ',
+          'ത', 'ഥ', 'ദ', 'ധ', 'ന',
+          'പ', 'ഫ', 'ബ', 'ഭ', 'മ',
+          'യ', 'ര', 'ല', 'വ', 'ശ', 'ഷ', 'സ', 'ഹ', 'ള', 'ഴ', 'റ'
+        ],
+        modifiers: ['ാ', 'ി', 'ീ', 'ു', 'ൂ', 'ൃ', 'െ', 'േ', 'ൈ', 'ൊ', 'ോ', 'ൌ', 'ം', 'ഃ', '്'],
+        space: 'Space (ഇടവേള)',
+        backspace: 'Backspace (ബാക്ക്‌സ്‌പേസ്)',
+        clear: 'Clear (വൃത്തിയാക്കുക)'
+      };
+    }
+    if (lang === 'bengali') {
+      return {
+        title: 'Bengali Virtual Keyboard (বাংলা কীবোর্ড)',
+        vowels: ['অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'এ', 'ঐ', 'ও', 'ঔ', 'অং', 'অঃ'],
+        consonants: [
+          'ক', 'খ', 'গ', 'ঘ', 'ঙ',
+          'চ', 'ছ', 'জ', 'ঝ', 'ঞ',
+          'ট', 'ঠ', 'ড', 'ঢ', 'ণ',
+          'ত', 'থ', 'দ', 'ধ', 'ন',
+          'প', 'ফ', 'ব', 'ভ', 'ম',
+          'য', 'র', 'ল', 'ব', 'শ', 'ষ', 'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ক্ষ'
+        ],
+        modifiers: ['া', 'ি', 'ী', 'ু', 'ূ', 'ৃ', 'ে', 'ৈ', 'ো', 'ৌ', 'ং', 'ঃ', 'ঁ', '্'],
+        space: 'Space (স্পেস)',
+        backspace: 'Backspace (মুছুন)',
+        clear: 'Clear (পরিষ্কার)'
+      };
+    }
+    if (lang === 'gujarati') {
+      return {
+        title: 'Gujarati Virtual Keyboard (ગુજરાતી કીબોર્ડ)',
+        vowels: ['અ', 'આ', 'ઇ', 'ઈ', 'ઉ', 'ઊ', 'ઋ', 'એ', 'ઐ', 'ઓ', 'ઔ', 'અં', 'અઃ'],
+        consonants: [
+          'ક', 'ખ', 'ગ', 'ઘ', 'ઙ',
+          'ચ', 'છ', 'જ', 'ઝ', 'જ્ઞ',
+          'ટ', 'ઠ', 'ડ', 'ઢ', 'ણ',
+          'ત', 'થ', 'દ', 'ધ', 'ન',
+          'પ', 'ફ', 'બ', 'ભ', 'મ',
+          'ય', 'ર', 'લ', 'વ', 'શ', 'ષ', 'સ', 'હ', 'ળ', 'ક્ષ', 'જ્ઞ'
+        ],
+        modifiers: ['ા', 'િ', 'ી', 'ુ', 'ૂ', 'ૃ', 'ે', 'ૈ', 'ો', 'ૌ', 'ં', 'ઃ', 'ઁ', '્'],
+        space: 'Space (જગ્યા)',
+        backspace: 'Backspace (ભૂંસો)',
+        clear: 'Clear (સાફ કરો)'
+      };
+    }
+    if (lang === 'punjabi') {
+      return {
+        title: 'Punjabi Virtual Keyboard (ਪੰਜਾਬੀ ਕੀਬੋਰਡ)',
+        vowels: ['ਅ', 'ਆ', 'ਇ', 'ਈ', 'ਉ', 'ਊ', 'ਏ', 'ਐ', 'ਓ', 'ਔ'],
+        consonants: [
+          'ਕ', 'ਖ', 'ਗ', 'ਘ', 'ਙ',
+          'ਚ', 'ਛ', 'ਜ', 'ਝ', 'ਞ',
+          'ਟ', 'ਠ', 'ਡ', 'ਢ', 'ਣ',
+          'ਤ', 'ਥ', 'ਦ', 'ਧ', 'ਨ',
+          'ਪ', 'ਫ', 'ਬ', 'ਭ', 'ਮ',
+          'ਯ', 'ਰ', 'ਲ', 'ਵ', 'ੜ'
+        ],
+        modifiers: ['ਾ', 'ਿ', 'ੀ', 'ੁ', 'ੂ', 'ੇ', 'ੈ', 'ੋ', 'ੌ', 'ਂ', '਼', 'ੱ', 'ੰ'],
+        space: 'Space (ਸਪੇਸ)',
+        backspace: 'Backspace (ਮਿਟਾਓ)',
+        clear: 'Clear (ਸਾਫ਼ ਕਰੋ)'
+      };
+    }
+    if (lang === 'urdu') {
+      return {
+        title: 'Urdu Virtual Keyboard (اردو کیبورڈ)',
+        vowels: ['ا', 'آ', 'و', 'ی', 'ے'],
+        consonants: [
+          'ب', 'پ', 'ت', 'ٹ', 'ث', 'ج', 'چ', 'ح', 'خ',
+          'د', 'ڈ', 'ذ', 'ر', 'ڑ', 'ز', 'ژ', 'س', 'ش',
+          'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ک',
+          'گ', 'ل', 'م', 'ن', 'ہ', 'ھ', 'ء'
+        ],
+        modifiers: ['َ', 'ِ', 'ُ', 'ً', 'ٍ', 'ٌ', 'ّ', 'ْ', 'ٰ'],
+        space: 'Space (خالی جگہ)',
+        backspace: 'Backspace (پیچھے)',
+        clear: 'Clear (صاف)'
+      };
+    }
     return {
-      title: 'Hindi Virtual Keyboard (हिन्दी कीबोर्ड)',
+      title: `${language || 'Hindi'} Virtual Keyboard (हिन्दी/मराठी कीबोर्ड)`,
       vowels: ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'अं', 'अः'],
       consonants: [
         'क', 'ख', 'ग', 'घ', 'ङ',
@@ -160,6 +283,41 @@ export default function ChatWindow({ reportId, reportName }) {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
+
+  const hasVirtualKeyboard = (lang) => {
+    const list = ['hindi', 'telugu', 'tamil', 'kannada', 'malayalam', 'bengali', 'gujarati', 'punjabi', 'marathi', 'urdu'];
+    return list.includes(lang?.toLowerCase());
+  };
+
+  // Automatically show virtual keyboard and switch layouts when language changes
+  useEffect(() => {
+    if (hasVirtualKeyboard(language)) {
+      setShowKeyboard(true);
+    } else {
+      setShowKeyboard(false);
+    }
+  }, [language]);
+
+  const getLangCode = () => {
+    const lang = language?.toLowerCase();
+    if (lang === 'hindi') return 'hi';
+    if (lang === 'telugu') return 'te';
+    if (lang === 'tamil') return 'ta';
+    if (lang === 'kannada') return 'kn';
+    if (lang === 'malayalam') return 'ml';
+    if (lang === 'bengali') return 'bn';
+    if (lang === 'gujarati') return 'gu';
+    if (lang === 'punjabi') return 'pa';
+    if (lang === 'urdu') return 'ur';
+    if (lang === 'spanish') return 'es';
+    if (lang === 'french') return 'fr';
+    if (lang === 'german') return 'de';
+    if (lang === 'chinese') return 'zh';
+    if (lang === 'japanese') return 'ja';
+    if (lang === 'arabic') return 'ar';
+    if (lang === 'portuguese') return 'pt';
+    return 'en';
+  };
 
   const handleSend = async (textToSend) => {
     const text = textToSend || input;
@@ -428,23 +586,26 @@ export default function ChatWindow({ reportId, reportName }) {
           onChange={(e) => setInput(e.target.value)}
           placeholder={getPlaceholder()}
           disabled={loading || !reportId}
+          lang={getLangCode()}
           className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all disabled:opacity-50"
         />
 
         {/* Keyboard Toggle Button */}
-        <button
-          type="button"
-          onClick={() => setShowKeyboard(!showKeyboard)}
-          disabled={!reportId}
-          className={`p-3 rounded-xl border transition-all disabled:opacity-50 ${
-            showKeyboard 
-              ? 'bg-brand-50 border-brand-200 text-brand-500 shadow-inner' 
-              : 'bg-slate-50 border-slate-200 text-slate-400 hover:text-slate-600 hover:bg-slate-100'
-          }`}
-          title="Toggle Hindi Keyboard"
-        >
-          <Keyboard className="w-4.5 h-4.5" />
-        </button>
+        {hasVirtualKeyboard(language) && (
+          <button
+            type="button"
+            onClick={() => setShowKeyboard(!showKeyboard)}
+            disabled={!reportId}
+            className={`p-3 rounded-xl border transition-all disabled:opacity-50 ${
+              showKeyboard 
+                ? 'bg-brand-50 border-brand-200 text-brand-500 shadow-inner' 
+                : 'bg-slate-50 border-slate-200 text-slate-400 hover:text-slate-600 hover:bg-slate-100'
+            }`}
+            title={`Toggle ${language} Keyboard`}
+          >
+            <Keyboard className="w-4.5 h-4.5" />
+          </button>
+        )}
 
         <button
           type="submit"

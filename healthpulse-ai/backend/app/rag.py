@@ -58,7 +58,7 @@ def get_fallback_embedding_function():
 def get_embedding_function():
     """Returns ONNX miniLM embedding function with fallback support."""
     try:
-        return embedding_functions.ONNXMiniLM_L6_V2EmbeddingFunction()
+        return embedding_functions.ONNXMiniLM_L6_V2()
     except Exception as e:
         print(f"Error loading ONNX embedding function, using fallback hash embeddings: {e}")
         return get_fallback_embedding_function()
@@ -192,7 +192,23 @@ def generate_llm_response(
         try:
             tags_res = requests.get(f"{settings.OLLAMA_BASE_URL}/api/tags", timeout=5)
             if tags_res.status_code == 200:
-                available_models = [m["name"] for m in tags_res.json().get("models", [])]
+                models_data = tags_res.json().get("models", [])
+                available_models = []
+                for m in models_data:
+                    caps = m.get("capabilities", [])
+                    # If capabilities are specified, we want models that support chat/completion
+                    # If not specified, we fallback to checking if "embed" is in the model name
+                    is_embedding_only = False
+                    if caps:
+                        if "embedding" in caps and "completion" not in caps:
+                            is_embedding_only = True
+                    else:
+                        if "embed" in m.get("name", "").lower():
+                            is_embedding_only = True
+                    
+                    if not is_embedding_only:
+                        available_models.append(m["name"])
+
                 if available_models:
                     model_found = False
                     for m in available_models:
