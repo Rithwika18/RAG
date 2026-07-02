@@ -10,6 +10,10 @@ export const AuthProvider = ({ children }) => {
 
   // Set the base URL for the backend
   const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+  console.log("VITE_API_URL =", import.meta.env.VITE_API_URL);
+  console.log("API_BASE_URL =", API_BASE_URL);
+
   axios.defaults.baseURL = API_BASE_URL;
 
   useEffect(() => {
@@ -31,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     const res = await axios.post('/login', { username, password });
     const { access_token, user: userData } = res.data;
-    
+
     setToken(access_token);
     setUser(userData);
     localStorage.setItem('token', access_token);
